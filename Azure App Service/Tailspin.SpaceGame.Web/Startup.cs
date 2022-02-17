@@ -37,6 +37,11 @@ namespace TailSpin.SpaceGame.Web
             // Add document stores. These are passed to the HomeController constructor.
             services.AddSingleton<IDocumentDBRepository<Score>>(new LocalDocumentDBRepository<Score>(@"SampleData/scores.json"));
             services.AddSingleton<IDocumentDBRepository<Profile>>(new LocalDocumentDBRepository<Profile>(@"SampleData/profiles.json"));
+
+            //Adding the application insights telemetry 
+            services.AddApplicationInsightsTelemetry();
+            services.AddMvc(); 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
